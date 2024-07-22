@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-//HW Q: How do you each social link one at a time??
+//HW Q: How do you handle each social link one at a time??
 public class FindingAllSocialLinks18b {
         static WebDriver driver;
 	public static void main(String[] args) throws InterruptedException {
