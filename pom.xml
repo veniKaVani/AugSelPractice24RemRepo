@@ -14,9 +14,10 @@
 	<url>http://www.example.com</url>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>11</maven.compiler.source>
-		<maven.compiler.target>11</maven.compiler.target>
+		<java.version>1.8</java.version>
+		<junit.version>4.12</junit.version>
+		<cucumber.version>4.2.5</cucumber.version>
+		<maven.compiler.version>3.3</maven.compiler.version>
 		<extentreports-version>5.0.8</extentreports-version>
 		<aspectj.version>1.9.19</aspectj.version>
 
@@ -25,6 +26,28 @@
 	</properties>
 
 	<dependencies>
+		<!-- 3 dependencies for maven-cucumber-java;cucumber-junit;junit-->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
@@ -157,7 +180,27 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-		</plugins>
 
+
+			<!-- adding build from cucumber skeleton link-->
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.version}</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<compilerArgument>-Werror</compilerArgument>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.21.0</version>
+			</plugin>
+		</plugins>
 	</build>
+
+
 </project>

@@ -1,4 +1,4 @@
-package navold_allbdd25;
+package navLaYellow_allbdd25;
 
 public class BDDtheory1 {
 	
